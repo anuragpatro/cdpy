@@ -23,6 +23,7 @@ class Cdpy(CdpSdkBase):
         self.environments = CdpyEnvironments(*args, **kwargs)
         self.datahub = CdpyDatahub(*args, **kwargs)
         self.datalake = CdpyDatalake(*args, **kwargs)
+        self.de = CdpyDe(*args, **kwargs)
         self.ml = CdpyMl(*args, **kwargs)
         self.opdb = CdpyOpdb(*args, **kwargs)
         self.dw = CdpyDw(*args, **kwargs)

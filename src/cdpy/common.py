@@ -194,7 +194,11 @@ class CdpcliWrapper(object):
             'STARTING',
             'ENABLING',  # DF
             'provision:started',  # ML
-            'installation:started'  # ML
+            'installation:started',  # ML
+            'ClusterProvisioningInitiated',  # DE
+            'ClusterProvisioningInProgress',  # DE
+            'AppInstallationInitiated',  # DE
+            'AppInstalling'  # DE
         ]
 
         self.TERMINATION_STATES = [
@@ -203,7 +207,11 @@ class CdpcliWrapper(object):
             'FREEIPA_DELETE_IN_PROGRESS',
             'STOPPING',
             'deprovision:started',  # ML
-            'DISABLING'  # DF
+            'DISABLING',  # DF
+            'AppDeleting',  # DE
+            'AppDeletionInitiated',  # DE
+            'ClusterDeletionInProgress',  # DE
+            'ClusterDeletionInitiated'  # DE
         ]
 
         self.STARTED_STATES = [
@@ -213,7 +221,9 @@ class CdpcliWrapper(object):
             'RUNNING',
             'installation:finished',  # ML
             'Running',  # DW
-            'GOOD_HEALTH'  # DF
+            'GOOD_HEALTH',  # DF
+            'AppInstalled',  # DE
+            'ClusterCreationCompleted'  # DE
         ]
 
         self.STOPPED_STATES = [
@@ -221,8 +231,10 @@ class CdpcliWrapper(object):
             'STOP_IN_PROGRESS',
             'STOPPED',
             'ENV_STOPPED',
-            'Stopped', # DW
-            'NOT_ENABLED'  # DF
+            'Stopped',  # DW
+            'NOT_ENABLED',  # DF
+            'ClusterDeletionCompleted',  # DE
+            'AppDeleted'  # DE
         ]
 
         self.FAILED_STATES = [
@@ -236,7 +248,12 @@ class CdpcliWrapper(object):
             'installation:failed',  # ML
             'provision:failed',  # ML
             'deprovision:failed',  # ML
-            'BAD_HEALTH'  # DF
+            'BAD_HEALTH',  # DF
+            'AppInstallationFailed',  # DE
+            'AppDeletionFailed',  # DE
+            'ClusterDeletionFailed',  # DE
+            'ClusterProvisioningFailed',  # DE
+            'ClusterCreationFailed'  # DE
         ]
 
         self.REMOVABLE_STATES = [
@@ -245,6 +262,8 @@ class CdpcliWrapper(object):
             'installation:failed', 'deprovision:failed', 'installation:finished', 'modify:finished',  # ML
             'Error', 'Running', 'Stopped', 'Deleting',  # DW
             'GOOD_HEALTH', 'CONCERNING_HEALTH', 'BAD_HEALTH',  # DF
+            'AppInstalled', 'AppInstallationFailed', 'AppDeletionFailed',  # DE
+            'ClusterDeletionFailed', 'ClusterProvisioningFailed', 'ClusterCreationFailed', 'ClusterCreationCompleted'  # DE
         ]
 
         # common regex patterns
